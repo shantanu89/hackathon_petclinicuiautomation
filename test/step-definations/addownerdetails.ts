@@ -2,7 +2,6 @@ import { Given, Then, When } from "@wdio/cucumber-framework";
 import data from "../data/testdata";
 import { homePage } from "../page/HomePage";
 
-
 Given(/^User is on petclinic home page$/, async function ()
 {
   await homePage.navigateToPetClinicApp();
@@ -53,6 +52,7 @@ Then(/^Owner information should be added$/, async function ()
   // expect(await homePage.verifyaddOwnerAddressDetails()).toBe(data.AddOwnerDetails.address)
   // expect(await homePage.verifyaddOwnerCityDetails()).toBe(data.AddOwnerDetails.city)
   // expect(await homePage.verifyaddOwnerTelephoneDetails()).toBe(data.AddOwnerDetails.telephone)
+  //check with some one
 
   for(let i=0;i<data.ActualOwnerData.length;i++)
   {
@@ -60,7 +60,3 @@ Then(/^Owner information should be added$/, async function ()
     console.log("Result:"+data.ActualOwnerData[i]);
   }
 });
-
-
-
-// how to use assertion (wdio) (reseach)

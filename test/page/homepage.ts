@@ -28,17 +28,20 @@ class HomePage extends ApplicationPage
         super()
         selectors;    
     }
+
+    //opening petclininc url
     async navigateToPetClinicApp()
     {
-        
         await browser.url(data.APP_URL.BASE_URL);     
     } 
 
+    // navigating to find owner menu
     async navigateToFindOwner() 
     {
         await (await $(selectors.navigatetofindowner)).click()
     }
 
+    //clicking on add owner button
     async navigateToAddOwner()
      {
         const addOwnerButton = await $(selectors.addownersumbmitbutton)
@@ -46,6 +49,7 @@ class HomePage extends ApplicationPage
         addOwnerButton.click()   
     }
 
+    //Adding details name,address,city,telephone to pet clinic app
     async addfirstname(firstnamevalue:any)
     {
         const firstname = await $(selectors.firstname);
@@ -70,7 +74,6 @@ class HomePage extends ApplicationPage
         city.setValue(cityvalue);
     }
     
-    //adding comments
     async addtelephone(telephonevalue:any) 
     {
         const telephone = await $(selectors.telephone);
@@ -89,6 +92,7 @@ class HomePage extends ApplicationPage
         buttonClick.click();  
     }
 
+    //validating details
     async checkOwnerInformationExists(){
         let addOwnerInfo = await $(selectors.addownerinfo)
         let ISDispalyed= addOwnerInfo.isDisplayed();
@@ -114,8 +118,10 @@ class HomePage extends ApplicationPage
     //  {
     //  let name = await (await (await $(selectors.verifyaddOwnerNameDetails)).getText())
     //  return name;
+    //  getting data from front end for validation
     //  }
      
+    // getting data from table element for validation
         public async getData()
         {  
             let length = selectors.tablelength.length;
