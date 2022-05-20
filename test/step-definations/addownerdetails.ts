@@ -36,27 +36,18 @@ Then(/^Owner information page should be displayed$/, async function ()
 When(/^User provides all the owner details$/, async function () 
 {
   // Adding new data
-  await homePage.addfirstname(data.AddOwnerDetails.firstName);
-  await homePage.addLastName(data.AddOwnerDetails.lastName);
-  await homePage.addAddress(data.AddOwnerDetails.address);
-  await homePage.addCity(data.AddOwnerDetails.city);
-  await homePage.addtelephone(data.AddOwnerDetails.telephone);
-  await homePage.submitAddOwnerDetails();
+  await homePage.addNewOwner();
 });
 
 
 Then(/^Owner information should be added$/, async function () 
 {
    await homePage.getData();
-  // expect(await homePage.verifyaddOwnerNameDetails()).toBe(data.AddOwnerDetails.firstName + " " + data.AddOwnerDetails.lastName)
-  // expect(await homePage.verifyaddOwnerAddressDetails()).toBe(data.AddOwnerDetails.address)
-  // expect(await homePage.verifyaddOwnerCityDetails()).toBe(data.AddOwnerDetails.city)
-  // expect(await homePage.verifyaddOwnerTelephoneDetails()).toBe(data.AddOwnerDetails.telephone)
-  //check with some one
-
+  // validating expected and actual result
+  
   for(let i=0;i<data.ActualOwnerData.length;i++)
   {
     expect(data.ExpectedOwnerData[i]).toBe(data.ActualOwnerData[i]);     
-    console.log("Result:"+data.ActualOwnerData[i]);
+    //console.log("Result:"+data.ActualOwnerData[i]);
   }
 });

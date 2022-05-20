@@ -1,9 +1,8 @@
 import ApplicationPage from "./ApplicationPage"
 import data from "../data/testdata";
-import { realpathSync } from "fs";
+//import { realpathSync } from "fs";
 
 const selectors={
-
     firstname:'input#firstname',
     lastname:'input#lastname',
     address:'input#address',
@@ -50,40 +49,22 @@ class HomePage extends ApplicationPage
     }
 
     //Adding details name,address,city,telephone to pet clinic app
-    async addfirstname(firstnamevalue:any)
+    public async addNewOwner()
     {
-        const firstname = await $(selectors.firstname);
-        firstname.setValue(firstnamevalue);
-    } 
+      const firstname = await $(selectors.firstname);
+      const lastname = await $(selectors.lastname);
+      const address = await $(selectors.address);
+      const city = await $(selectors.city);
+      const telephone = await $(selectors.telephone);
+      const addownerbutton = await $(selectors.addownerbutton);
 
-    async addLastName(lastnamevalue:any)
-    {
-        const lastname = await $(selectors.lastname);
-        lastname.setValue(lastnamevalue);
-    }
+      await firstname.setValue(data.AddOwnerDetails.firstName);
+      await lastname.setValue(data.AddOwnerDetails.lastName);
+      await address.setValue(data.AddOwnerDetails.address)
+      await city.setValue(data.AddOwnerDetails.city);
+      await telephone.setValue(data.AddOwnerDetails.telephone)
+      await addownerbutton.click();
 
-    async addAddress(addressvalue:any)
-     {
-        const address = await $(selectors.address);
-        address.setValue(addressvalue);
-    }
-
-    async addCity(cityvalue:any) 
-    {
-        const city = await $(selectors.city);
-        city.setValue(cityvalue);
-    }
-    
-    async addtelephone(telephonevalue:any) 
-    {
-        const telephone = await $(selectors.telephone);
-        telephone.setValue(telephonevalue);
-    }
-
-    async submitAddOwnerDetails() 
-    {
-        const addownerbutton = await $(selectors.addownerbutton);
-        addownerbutton.click();  
     }
 
     async AddOwner() 
@@ -113,14 +94,7 @@ class HomePage extends ApplicationPage
         console.log("ISDispalyed? "+ isDisplayed)
         return isDisplayed;
     }
-
-    //  public async verifyaddOwnerNameDetails()
-    //  {
-    //  let name = await (await (await $(selectors.verifyaddOwnerNameDetails)).getText())
-    //  return name;
-    //  getting data from front end for validation
-    //  }
-     
+    
     // getting data from table element for validation
         public async getData()
         {  
