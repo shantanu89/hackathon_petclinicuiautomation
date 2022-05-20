@@ -36,7 +36,7 @@ Then(/^Owner information page should be displayed$/, async function ()
 When(/^User provides all the owner details$/, async function () 
 {
   // Adding new data
-  await homePage.addNewOwner();
+  await homePage.addNewOwner(data.AddOwnerDetails.firstName,data.AddOwnerDetails.lastName,data.AddOwnerDetails.address,data.AddOwnerDetails.city,data.AddOwnerDetails.telephone);
 });
 
 
@@ -44,7 +44,7 @@ Then(/^Owner information should be added$/, async function ()
 {
    await homePage.getData();
   // validating expected and actual result
-  
+
   for(let i=0;i<data.ActualOwnerData.length;i++)
   {
     expect(data.ExpectedOwnerData[i]).toBe(data.ActualOwnerData[i]);     

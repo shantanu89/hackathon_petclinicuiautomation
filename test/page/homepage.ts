@@ -44,12 +44,12 @@ class HomePage extends ApplicationPage
     async navigateToAddOwner()
      {
         const addOwnerButton = await $(selectors.addownersumbmitbutton)
-        //await addOwnerButton.waitForClickable({ timeout: 3000 });
+        //await addOwnerButton .waitForClickable({ timeout: 3000 });
         addOwnerButton.click()   
     }
 
     //Adding details name,address,city,telephone to pet clinic app
-    public async addNewOwner()
+    public async addNewOwner(data_firstname:any,data_lname:any,data_address:any,data_city:any,data_telephone:any)
     {
       const firstname = await $(selectors.firstname);
       const lastname = await $(selectors.lastname);
@@ -58,11 +58,11 @@ class HomePage extends ApplicationPage
       const telephone = await $(selectors.telephone);
       const addownerbutton = await $(selectors.addownerbutton);
 
-      await firstname.setValue(data.AddOwnerDetails.firstName);
-      await lastname.setValue(data.AddOwnerDetails.lastName);
-      await address.setValue(data.AddOwnerDetails.address)
-      await city.setValue(data.AddOwnerDetails.city);
-      await telephone.setValue(data.AddOwnerDetails.telephone)
+      await firstname.setValue(data_firstname);
+      await lastname.setValue(data_lname);
+      await address.setValue(data_address)
+      await city.setValue(data_city);
+      await telephone.setValue(data_telephone)
       await addownerbutton.click();
 
     }
@@ -72,15 +72,7 @@ class HomePage extends ApplicationPage
         const buttonClick = await $(selectors.addownerbutton)
         buttonClick.click();  
     }
-
-    //validating details
-    async checkOwnerInformationExists(){
-        let addOwnerInfo = await $(selectors.addownerinfo)
-        let ISDispalyed= addOwnerInfo.isDisplayed();
-        console.log("ISDispalyed? "+ ISDispalyed)
-        return ISDispalyed;
-    }
-
+    
     async findOwnerPage() {
         let findOwnerPage = await $(selectors.findOwnerPage)
         let isDisplayed=findOwnerPage.isDisplayed();
