@@ -1,15 +1,3 @@
-// {
-//     "compilerOptions": {
-//         "types": [
-//             "node",
-//             "webdriverio/async",
-//             "@wdio/cucumber-framework",
-//             "expect-webdriverio"
-//         ],
-//         "target": "ES5"
-//     }
-// }
-
 {
     "compilerOptions": {
         "types": [

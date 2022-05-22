@@ -20,9 +20,6 @@ Background: Navigate to find owner page
           Then Owner information should be added 
 
 
-#    add tag to everyscenario
-
-
 
 
 
