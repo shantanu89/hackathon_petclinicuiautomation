@@ -44,11 +44,10 @@ When(/^User provides all the owner details$/, async function ()
 Then(/^Owner information should be added$/, async function () 
 {
    await homePage.getData();
+   
   // validating expected and actual result
-
   for(let i=0;i<data.ActualOwnerData.length;i++)
   {
     expect(data.ExpectedOwnerData[i]).toBe(data.ActualOwnerData[i]);     
-    //console.log("Result:"+data.ActualOwnerData[i]);
   }
 });

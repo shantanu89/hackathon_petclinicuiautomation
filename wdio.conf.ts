@@ -164,7 +164,7 @@ export const config: WebdriverIO.Config = {
     reporters: ['spec', ['cucumberjs-json', {
 
         //outputDir: 'cucumber-results',
-        jsonFolder: '.tmp/new/',
+        jsonFolder: '.Reports/new/',
         language: 'en',
         disableHooks: true,
       
@@ -172,7 +172,8 @@ export const config: WebdriverIO.Config = {
 
         //useCucumberStepReporter: true
     }]],
-    
+
+
     // If you are using Cucumber you need to specify the location of your step definitions.
     cucumberOpts: {
         // <string[]> (file/dir) require files before executing features
