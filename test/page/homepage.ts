@@ -18,7 +18,7 @@ const selectors={
     verifyaddOwnerNameDetails:'/html/body/div/div/table[1]/tbody/tr[1]/td',
     addOwnerPage:'div.container-fluid',
     findOwnerPage:'div.container.xd-container',
-    tablelength:'tbody'
+    tablelength:'tbody',
 }
 class HomePage extends ApplicationPage 
 {
@@ -28,6 +28,14 @@ class HomePage extends ApplicationPage
         selectors;    
     }
 
+    async verifyPageTitle()
+    {
+        await browser.url(data.APP_URL.BASE_URL);
+        const ApplicationTitle = await browser.getTitle();
+        expect(ApplicationTitle).toBe(data.PageTitle.title);
+    }
+    
+      
     //opening petclininc url
     async navigateToPetClinicApp()
     {
@@ -44,7 +52,6 @@ class HomePage extends ApplicationPage
     async navigateToAddOwner()
      {
         const addOwnerButton = await $(selectors.addownersumbmitbutton)
-        //await addOwnerButton .waitForClickable({ timeout: 3000 });
         addOwnerButton.click()   
     }
 

@@ -5,6 +5,7 @@ import { homePage } from "../page/HomePage";
 Given(/^User is on petclinic home page$/, async function ()
 {
   await homePage.navigateToPetClinicApp();
+  await homePage.verifyPageTitle();
 });
 
 When(/^User clicks on find owner menu$/, async function ()
